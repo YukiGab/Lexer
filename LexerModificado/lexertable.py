@@ -1,11 +1,10 @@
 import re
 
 # Lista de patrones y sus tipos de token correspondientes
-# El orden es CRUCIAL: patrones más específicos primero
 token = [
     # ========== KEYWORDS (palabras reservadas) ==========
     (r'\bprint\b', 'keyword'),
-    (r'\bprintf\b', 'identifier'),  # printf NO es keyword, es función
+    (r'\bprintf\b', 'keyword'),
     (r'\bint\b', 'keyword'),
     (r'\bfloat\b', 'keyword'),
     (r'\bdouble\b', 'keyword'),
@@ -32,15 +31,14 @@ token = [
     (r'\bnullptr\b', 'constant'),
     
     # ========== CONSTANTS (literales) ==========
-    # Strings (con soporte para caracteres escapados)
     (r'"[^"\\]*(\\.[^"\\]*)*"', 'constant'),
     (r"'[^'\\]*(\\.[^'\\]*)*'", 'constant'),
     
     # Números
-    (r'\b0[xX][0-9a-fA-F]+\b', 'constant'),  # Hexadecimales
-    (r'\b0[0-7]+\b', 'constant'),  # Octales
-    (r'\b\d+\.\d+([eE][+-]?\d+)?\b', 'constant'),  # Flotantes
-    (r'\b\d+[uU]?[lL]?\b', 'constant'),  # Enteros
+    (r'\b0[xX][0-9a-fA-F]+\b', 'constant'),          # Hexadecimales
+    (r'\b0[0-7]+\b', 'constant'),                    # Octales
+    (r'\b\d+\.\d+([eE][+-]?\d+)?\b', 'constant'),    # Flotantes
+    (r'\b\d+[uU]?[lL]?\b', 'constant'),              # Enteros
     
     # ========== IDENTIFIERS (identificadores) ==========
     (r'[a-zA-Z_][a-zA-Z0-9_]*', 'identifier'),
@@ -87,7 +85,7 @@ token = [
     (r'~', 'operator'),
     (r'\?', 'operator'),
     
-    # ========== PUNCTUATION (puntuación y delimitadores) ==========
+    # ========== PUNCTUATION ==========
     (r';', 'punctuation'),
     (r',', 'punctuation'),
     (r'\(', 'punctuation'),
@@ -101,7 +99,7 @@ token = [
     
     # ========== COMMENTS (comentarios - se ignoran) ==========
     (r'//.*', None),  # Comentarios de línea
-    (r'/\*.*?\*/', None),  # Comentarios multilínea (non-greedy)
+    (r'/\*.*?\*/', None),  # Comentarios multilínea
     
     # ========== WHITESPACE (espacios en blanco - se ignoran) ==========
     (r'\s+', None),
