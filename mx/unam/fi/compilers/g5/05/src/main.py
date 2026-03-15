@@ -16,7 +16,7 @@ def main():
                 lector.analizeterminal(code)
                 break
             case "exit":
-                exit
+                exit()
             case _:
                 print("Error: Invalid option. Please try again.\n")
 
