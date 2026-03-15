@@ -42,37 +42,37 @@ def analizearchive(ruta):
         print(f"Error, file not found in {ruta}")
 
 def analizeterminal(code):
-    lista_tokens =[]
-    lineas = code.splitlines() 
-    for linea in lineas:
-            position = 0
+    lista_tokens =[] #creamos lista vacia
+    lineas = code.splitlines() #leemos las lineas y las asignamos a una lista
+    for linea in lineas: 
+            position = 0 #nos aseguramos empezar desde el inicio
 
 
 
-            while position < len(linea):
-                if linea[position].isspace():
+            while position < len(linea): #aseguramos agarrar tordos los caracteres la linea actual
+                if linea[position].isspace(): #quitamos los espacios
                     position += 1
                     continue
 
-                palabra = linea[position:]
+                palabra = linea[position:] #podriamos decir que sirve para apuntar al siguiente token
                 palabraval = False
 
-                for palabras, tipo in token:
-                    validar = re.compile(palabras)
-                    comparar = validar.match(palabra)
+                for palabras, tipo in token: #revisa mi tabla completa
+                    validar = re.compile(palabras) #arma una expresion regular para buscar patrones
+                    comparar = validar.match(palabra) #intenta buscar patrones al inicio de la cadena
 
-                    if comparar:
-                        valor = comparar.group(0)
-                        if tipo:
-                            lista_tokens.append(tipo)
+                    if comparar: #si la linea coincide con la tabla es verdadero
+                        valor = comparar.group(0) #guarda el token exacto que coincidio con la tabla
+                        if tipo: #si existe el tipo en nuestra tabla
+                            lista_tokens.append(tipo) #agregamso el tipo de token a nuestra lista
                     
-                        position += len(valor)
+                        position += len(valor) #nos movemos al siguiente token
                         palabraval = True
                         break
         
-            if not palabraval:
-                print(f"Error: Invalid symbol at '{linea[position]}'")
+            if not palabraval: #si no coincidio con ningun patron (en este caso, con algun elemento de nuestra tabla)
+                print(f"Error: Invalid symbol at '{linea[position]}'") 
                 return
 
-    print(" ".join(lista_tokens))
-    print(f"Total of tokens: {len(lista_tokens)}")
+    print(" ".join(lista_tokens)) #imprimimos la lista de nuestros tokens totales
+    print(f"Total of tokens: {len(lista_tokens)}") #imprimimos cuantos tokens tenemos
