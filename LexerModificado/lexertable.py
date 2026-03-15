@@ -4,7 +4,7 @@ import re
 token = [
     # ========== KEYWORDS (palabras reservadas) ==========
     (r'\bprint\b', 'keyword'),
-    (r'\bprintf\b', 'keyword'),
+    (r'\bprintf\b', 'identifier'), 
     (r'\bint\b', 'keyword'),
     (r'\bfloat\b', 'keyword'),
     (r'\bdouble\b', 'keyword'),
