@@ -1,4 +1,4 @@
-import lector
+from src import lector
 def main():
     while True:
         seleccion = input("Select how you will enter your code (archive/terminal): ").strip().lower()

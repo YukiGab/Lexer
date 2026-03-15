@@ -1,5 +1,5 @@
 import re
-from lexertable import token
+from src.lexertable import token
 
 def analizearchive(ruta):
     lista_tokens =[] #creamos lista vacia

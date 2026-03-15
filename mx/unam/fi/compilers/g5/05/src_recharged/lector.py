@@ -1,5 +1,5 @@
 import re
-from lexertable import token
+from src_recharged.lexertable import token
 
 def analizearchive(ruta):
     """

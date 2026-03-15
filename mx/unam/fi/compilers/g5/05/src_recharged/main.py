@@ -1,6 +1,6 @@
 import sys
 import os
-from lector import analizearchive, analizeterminal
+from src_recharged.lector import analizearchive, analizeterminal
 
 def main():
     """Función principal del lexer"""
