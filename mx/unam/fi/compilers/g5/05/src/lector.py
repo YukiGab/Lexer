@@ -76,3 +76,4 @@ def analizeterminal(code):
 
     print(" ".join(lista_tokens)) #imprimimos la lista de nuestros tokens totales
     print(f"Total of tokens: {len(lista_tokens)}") #imprimimos cuantos tokens tenemos
+    #recuerden que el lexer solo arroja el tipo de token, no verifica si es logico, creo que ese sería el semantico
