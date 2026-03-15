@@ -10,7 +10,7 @@ token = [
     (r'\]', 'punctuation'),
     (r';', 'punctuation'),
     (r',', 'punctuation'),
-    (r'.', 'punctuation'),
+    (r'\.', 'punctuation'),
     #operadores
     (r'==', 'operator'),
     (r'!=', 'operator'),
