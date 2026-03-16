@@ -1,1 +1,1 @@
-"Run pip install rply in the terminal."
+Run pip install rply in the terminal.
